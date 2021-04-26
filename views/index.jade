@@ -1,0 +1,53 @@
+extends layout
+
+block content
+
+  section.jumbotron.text-center
+    .container
+      h1 Post A Question
+      p.lead.text-muted
+        | Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+      p
+        a.btn.btn-primary(href='/addpost', role='button') Post Question
+      
+  .container.mt-5
+    .row
+      .col-md-9
+        form
+          .form-group
+            input#search.form-control(type='text', placeholder='Search question...', aria-label='Search')
+      .col-md-3
+        h4
+          | Recently asked
+        table.table
+          tbody
+          if resently 
+            each resent, i in resently 
+              tr
+                td 
+                  a.qstTitle(href='page')=resent.title
+                td.text-right #{moment(resent.date).format("MM/DD/YYYY")}
+        
+        h4
+          | Most Answered
+        table.table
+          tbody
+          if mostAnswered
+            each mostAnswer, i in mostAnswered  
+              tr
+                td 
+                  a.qstTitle(href='page')=mostAnswer.title
+                  p.card-text Answers: 
+                    if mostAnswer.answers
+                        strong
+                            = mostAnswer.answers.length
+                    else
+                        strong
+                            = 0
+                td.text-right #{moment(mostAnswer.date).format("MM/DD/YYYY")}
+  footer
+    .container.text-center
+        p
+            | © Copyrights 2020 Jose Juarez. All Rights Reserved.
+        p
+            a(href='#') Back to top

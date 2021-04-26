@@ -1,0 +1,82 @@
+extends layout
+
+block content
+    .container.text-center.pb-2.pt-5
+        h1 All Questions
+
+        form
+            .form-group
+                input#search.form-control(type='text', placeholder='Search question...', aria-label='Search')
+
+    .container.mb-3
+        .row
+            .col-md-6
+                .btn-group(role='group', aria-label='Basic example')
+                    a.btn.btn-outline-secondary(type='button', href="/questions") New
+                    a.btn.btn-outline-secondary(type='button', href="/questions?tab=unanswered") Unanswered
+            .col-md-6.text-right
+                a.btn.btn-primary(href='/addpost', role='button') Post Question
+
+    .container
+        if posts && !unansweredTab
+            each post, i in posts
+                .card.mb-2
+                    .card-body
+                        a(href='questions/show/#{post._id}')
+                            h3.card-title= post.title
+                        p.card-text Answers: 
+                            if post.answers
+                                strong
+                                    = post.answers.length
+                            else
+                                strong
+                                    = 0
+                        p.card-text Category: #{post.category}
+                        .questionTrunc.mb-4
+                            p.card-text
+                                prep
+                                    != post.question
+                        medium.text-muted asked on #{moment(post.date).format("MM/DD/YYYY")}
+
+        if unanswerPost
+            each unanswer, i in unanswerPost
+                .card.mb-2
+                    .card-body
+                        a(href='questions/show/#{unanswer._id}')
+                            h3.card-title= unanswer.title
+                        p.card-text Answers: 
+                            if unanswer.answers
+                                strong
+                                    = unanswer.answers.length
+                            else
+                                strong
+                                    = 0
+                        p.card-text Category: #{unanswer.category}
+                        .questionTrunc.mb-4
+                            p.card-text
+                                prep
+                                    != unanswer.question
+                        medium.text-muted asked on #{moment(unanswer.date).format("MM/DD/YYYY")}
+
+
+        nav(aria-label='Page navigation example')
+            ul.pagination
+                li.page-item
+                    a.page-link(href='#') Previous
+                li.page-item
+                    a.page-link(href='#') 1
+                li.page-item
+                    a.page-link(href='#') 2
+                li.page-item
+                    a.page-link(href='#') 3
+                li.page-item
+                    a.page-link(href='#') Next
+
+    footer
+        .container.text-center
+            p
+                | © Copyrights 2020 Jose Juarez. All Rights Reserved.
+            p
+                a(href='#') Back to top
+
+            

@@ -1,0 +1,43 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 55px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#AsnwerQst{
+  margin-left: 70%;
+}
+
+.qstTitle{
+  text-transform: initial;
+}
+
+code{
+  color: black;
+}
+
+pre{
+  background-color: #eff0f1;
+  padding: 12px 8px;
+}
+
+.answer-form{
+  display: none;
+}
+
+footer{
+  margin-top: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 170px;
+  background-color: #212529;
+  color: white;
+  flex-shrink: 0;
+}

@@ -1,0 +1,6 @@
+Questions for project
+---------------------
+https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
+https://stackoverflow.com/questions/178325/how-do-i-check-if-an-element-is-hidden-in-jquery
+https://stackoverflow.com/questions/503093/how-do-i-redirect-to-another-webpage
+

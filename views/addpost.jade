@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    .container.pb-5.pt-5
+        h1.text-center=title
+        
+        if errors
+            each error, i in errors
+                div.alert.alert-danger #{error.msg}
+
+        form(method="post", action="/addpost")
+            .form-group
+                label(for='questionTitle') Question
+                input#questionTitle.form-control(name="title", type='text', placeholder='title', autocomplete='off')
+                small#passwordHelpBlock.form-text.text-muted
+                    | Please add a meaningful title. Example: How to create a for loop in JavaScript
+            .form-group
+                label(for='questionCategory') Category
+                input#questionCategory.form-control(name="category", type='text', placeholder='javascript', autocomplete='off')
+                small#passwordHelpBlock.form-text.text-muted
+            .form-group
+                label(for='my-text-area') Problem
+                textarea#my-text-area.form-control(name="question")
+
+            button.btn.btn-primary(name="submit", type='submit') Add Post
+    
+    footer
+        .container.text-center
+            p
+                | © Copyrights 2020 Jose Juarez. All Rights Reserved.
+            p
+                a(href='#') Back to top
+        
